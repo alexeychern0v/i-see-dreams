@@ -9,7 +9,7 @@ export default function DreamForm({ onSave }) {
     if (!dream.trim()) return;
 
     const text = dream.toLowerCase();
-    let analysis = 'Твой сон — уникальное отражение внутреннего мира.';
+    let analysis = 'This dream doesn’t match any common patterns — and that’s okay. Sometimes, dreams reflect your unique emotional state or moments from your day that words can’t fully capture. Try describing it again, or simply take a moment to reflect on how you felt when you woke up. That matters too.';
 
     if (text.includes('water') || text.includes('ocean') || text.includes('lake') || text.includes('river')) {
       analysis = 'Water in dreams often represents emotions, unconscious thoughts, or life changes. It can symbolize cleansing, renewal, or emotional turbulence.';
@@ -24,7 +24,7 @@ export default function DreamForm({ onSave }) {
     } else if (text.includes('lost') || text.includes('lost in') || text.includes('losting')) {
       analysis = 'Feeling lost in a dream can reflect confusion, uncertainty, or a lack of direction in your waking life. It may indicate a need to find clarity or purpose.';
     }
-    
+
     const day_phrases = [
       'Trust the whispers of your inner world — they know what’s next.',
       'Growth often looks like stillness. Be gentle with yourself today.',
@@ -45,7 +45,7 @@ export default function DreamForm({ onSave }) {
     const daily = day_phrases[Math.floor(Math.random() * day_phrases.length)];
 
     setResult(analysis);
-    setPhrase(daily);    
+    setPhrase(daily);
 
     onSave({
       date: new Date().toLocaleString(),
