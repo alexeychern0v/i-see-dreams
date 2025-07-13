@@ -1,5 +1,5 @@
 import './App.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import DreamForm from './components/DreamForm';
 import DreamHistory from './components/DreamHistory';
 import { db } from './firebase';
