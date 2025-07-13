@@ -1,14 +1,32 @@
 import './App.css';
 import { useState } from 'react';
 import DreamForm from './components/DreamForm';
+import DreamHistory from './components/DreamHistory';
+import { db } from './firebase';
+import { collection, addDoc, getDocs } from 'firebase/firestore';
 
 function App() {
   const [dreams, setDreams] = useState([]);
 
-  const handleSave = (entry) => {
-    setDreams([entry, ...dreams]);
-    // DB later
+  const handleSave = async(entry) => {
+    try {
+      await addDoc(collection(db, 'dreams'), entry);
+      setDreams([entry, ...dreams]);
+    } catch (e) {
+      console.error('Save error', e);
+    }
   };
+
+ const loadDreams = async () => {
+    const snapshot = await getDocs(collection(db, 'dreams'));
+    const entries = snapshot.docs.map(doc => doc.data()).reverse();
+    setDreams(entries);
+  };
+
+  useEffect(() => {
+    loadDreams();
+  }, []);
+
   
   return (
     <div className="container">
