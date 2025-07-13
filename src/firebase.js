@@ -1,0 +1,16 @@
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyA6Tsa9i07Otk5yZn5Xd2zOv0RlaAl0hCE",
+    authDomain: "i-see-dreams.firebaseapp.com",
+    projectId: "i-see-dreams",
+    storageBucket: "i-see-dreams.firebasestorage.app",
+    messagingSenderId: "564851561040",
+    appId: "1:564851561040:web:559f63d9e5798e4d0db755",
+    measurementId: "G-07ZFBR8KRD"
+};
+
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
