@@ -70,9 +70,9 @@ export default function DreamForm({ onSave }) {
 
       {result && (
         <div className="result">
-          <h3>Dream Interpretation:</h3>
+          <h3>🔍 Dream Interpretation:</h3>
           <p>{result}</p>
-          <h3>Phrase of the day:</h3>
+          <h3>💬 Phrase of the day:</h3>
           <p>{phrase}</p>
         </div>
       )}
