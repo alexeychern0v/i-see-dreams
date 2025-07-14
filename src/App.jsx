@@ -34,6 +34,7 @@ function App() {
       <p>Record your dreams, uncover their meaning, and receive a daily phrase to guide your day. </p>
       <p>Dive deep into your inner world.</p>
       <DreamForm onSave={handleSave} />
+      <DreamHistory dreams={dreams} />    
     </div>
   );
 }
