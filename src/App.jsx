@@ -7,10 +7,20 @@ import { db } from './firebase';
 import { auth } from './firebase';
 import { collection, addDoc, getDocs, query, where } from 'firebase/firestore';
 import { signOut } from 'firebase/auth';
+import { onAuthStateChanged } from 'firebase/auth';
 
 function App() {
   const [user, setUser] = useState(null);
   const [dreams, setDreams] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+      setLoading(false);
+    });
+  return () => unsubscribe();
+  }, []);
 
   const handleSave = async(entry) => {
     try {
@@ -33,6 +43,8 @@ function App() {
       loadDreams(user.uid);
     }
   }, [user]);
+
+  if (loading) return <div style={{ padding: "2rem", textAlign: "center" }}>Loading...</div>;
 
   if (!user) {
     return <AuthForm onLogin={setUser} />;
