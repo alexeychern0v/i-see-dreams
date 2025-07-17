@@ -53,10 +53,19 @@ function App() {
 
   return (
     <>
-    <div className="logout">
-      <button onClick={() => { signOut(auth); setUser(null); }}>
-        Log out
-      </button>
+    <div className="top-right-controls">
+      <div className="tooltip-wrapper">
+        <button className="about-button">❔</button>
+        <div className="tooltip-text">
+          <strong>About</strong><br />
+          Hi, it's Alexey Chernov.<br />
+          I created this simple web site for my project in Holberton School based in Paris.<br />
+          "I See Dreams" helps you to record your dreams, uncover their meaning, and receive a daily phrase to guide your day.<br />
+          I will soon add more different fun tools and good design.<br />
+          My Github @alexeychern0v<br />
+        </div>
+      </div>
+      <button className="logout-button" onClick={() => { signOut(auth); setUser(null); }}>🚪➜</button>
     </div>
 
     <div className="container">
