@@ -40,16 +40,23 @@ function App() {
   
 
   return (
+    <>
+    <div className="logout">
+      <button onClick={() => { signOut(auth); setUser(null); }}>
+        Log out
+      </button>
+    </div>
+
     <div className="container">
       <div className="top-bar">
         <h1>I See Dreams</h1>
-        <button onClick={() => { signOut(auth); setUser(null); }}>Log out</button>
         <p>Record your dreams, uncover their meaning, and receive a daily phrase to guide your day. </p>
         <p>Dive deep into your inner world.</p>
       </div>
       <DreamForm onSave={handleSave} />
       <DreamHistory dreams={dreams} />    
     </div>
+  </>
   );
 }
 
